@@ -1,0 +1,73 @@
+<div class="container my-5">
+
+    <!-- Characters -->
+    <div class="row">
+        <div class="col-12">
+            <h2 class="titulo colorTexto">Characters</h2>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 my-3 cardCharacter" *ngFor="let character of characters">
+                <div class="card shadow" style="width: 18rem; background-color: #191919;">
+                    <img src="{{character.image}}" class="card-img-top" alt="{{character.name}}">
+                    <div class="card-body">
+                        <a routerLink="/character/{{character.id}}" class="enlaceNombreCharacter colorTexto">
+                            <h5 class="card-title">{{character.name}}</h5>
+                        </a>
+                        <p class="card-text colorTexto"
+                            [ngClass]="{'text-success': character.status === 'Alive', 'text-danger': character.status === 'Dead', 'text-warning': character.status === 'unknown'}">
+                            {{character.status}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-2 text-center">
+                <a routerLink="/characters" class="btn btn-primary">View more</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Locations -->
+    <div class="row my-5">
+        <div class="col-12">
+            <h2 class="titulo colorTexto">Locations</h2>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 my-3 cardCharacter" *ngFor="let location of locations">
+                <div class="card shadow" style="width: 18rem; background-color: #191919;">
+                    <div class="card-body">
+                        <a routerLink="/location/{{location.id}}" class="enlaceNombreCharacter colorTexto">
+                            <h5 class="card-title">{{location.name}}</h5>
+                        </a>
+                        <p class="card-text colorTexto">{{location.type}}</p>
+                        <p class="card-text colorTexto">{{location.dimension}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-2 text-center">
+                <a routerLink="/locations" class="btn btn-primary">View more</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Episodes -->
+    <div class="row my-5">
+        <div class="col-12">
+            <h2 class="titulo colorTexto">Episodes</h2>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 my-3 cardCharacter" *ngFor="let location of locations">
+                <div class="card shadow" style="width: 18rem; background-color: #191919;">
+                    <div class="card-body">
+                        <a routerLink="/location/{{location.id}}" class="enlaceNombreCharacter colorTexto">
+                            <h5 class="card-title">{{location.name}}</h5>
+                        </a>
+                        <p class="card-text colorTexto">
+                            {{location.type}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-2 text-center">
+                <a routerLink="/characters" class="btn btn-primary">View more</a>
+            </div>
+        </div>
+    </div>
+</div>

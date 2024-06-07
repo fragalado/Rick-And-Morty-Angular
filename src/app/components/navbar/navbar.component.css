@@ -1,0 +1,13 @@
+.colorLetras {
+    color: #ffffff;
+}
+
+.colorLetras:hover {
+    color: #a0a0a0;
+    text-decoration: underline;
+}
+
+.navMod {
+    max-width: 1200px;
+    margin: 0 auto;
+}
