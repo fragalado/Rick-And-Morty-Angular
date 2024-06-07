@@ -1,1 +1,50 @@
-<p>character works!</p>
+<div class="container my-5">
+    <!-- Characters -->
+    <div class="row" data-aos="zoom-in" data-aos-once="true" data-aos-duration="1500">
+
+        <div class="col-12 col-md-6">
+            <h2 class="titulo colorTexto">Characters</h2>
+        </div>
+        <div class="col-12 col-md-6" style="display: flex; align-items: center;">
+            <input type="text" class="form-control" placeholder="Search..." [formControl]="filterName">
+        </div>
+
+        <div class="row mt-4" *ngIf="characters.length === 0">
+            <h5 class="text-center colorTexto">Not Found</h5>
+        </div>
+
+        <div class="row" *ngIf="characters.length !== 0">
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 my-3 cardCharacter" *ngFor="let character of characters">
+                <div class="card shadow" style="width: 18rem; background-color: #191919;">
+                    <img src="{{character.image}}" class="card-img-top" alt="{{character.name}}">
+                    <div class="card-body">
+                        <a routerLink="/character/{{character.id}}" [queryParams]="{ from: 'characters' }"
+                            class="enlaceNombreCharacter colorTexto">
+                            <h5 class="card-title">{{character.name}}</h5>
+                        </a>
+                        <p class="card-text colorTexto"
+                            [ngClass]="{'text-success': character.status === 'Alive', 'text-danger': character.status === 'Dead', 'text-warning': character.status === 'unknown'}">
+                            {{character.status}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="characters.length !== 0">
+            <!-- Pagination -->
+            <div class="col-12" style="display: flex; justify-content: center; gap: 10px">
+                <button class="btn btn-primary" [disabled]="!prevPage" (click)="getCharacters(prevPage)"
+                    [ngClass]="{'d-none': isFiltered}">Prev</button>
+                <button class="btn btn-primary" [disabled]="!nextPage" (click)="getCharacters(nextPage)"
+                    [ngClass]="{'d-none': isFiltered}">Next</button>
+
+                <!-- Filtered buttons -->
+                <button class="btn btn-primary" [disabled]="!prevPage" (click)="filterCharactersByPage(prevPage!)"
+                    [ngClass]="{'d-none': !isFiltered}">Prev</button>
+                <button class="btn btn-primary" [disabled]="!nextPage" (click)="filterCharactersByPage(nextPage!)"
+                    [ngClass]="{'d-none': !isFiltered}">Next</button>
+            </div>
+        </div>
+
+    </div>
+</div>

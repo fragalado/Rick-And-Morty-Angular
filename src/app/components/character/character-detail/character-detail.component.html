@@ -1,1 +1,49 @@
-<p>character-detail works!</p>
+<div class="container my-5" *ngIf="character">
+    <div class="row">
+
+        <div class="col-12">
+            <!-- Back button -->
+            <a routerLink="/{{urlFrom}}" class="btn btn-primary">Go Back</a>
+        </div>
+
+        <div class="col-12 text-center my-5">
+            <!-- Character image -->
+            <img src="{{character.image}}" class="img-fluid" alt="{{character.name}}">
+
+            <!-- Character name -->
+            <h2 class="colorTexto">{{character.name}}</h2>
+
+            <!-- Status -->
+            <p class="colorTexto"
+                [ngClass]="{'text-success': character.status === 'Alive', 'text-danger': character.status === 'Dead', 'text-warning': character.status === 'unknown'}">
+                Status: {{character.status}}</p>
+
+            <!-- Species -->
+            <p class="colorTexto">Species: {{character.species}}</p>
+
+            <!-- Origin -->
+            <p class="colorTexto">Origin: {{character.origin.name}}</p>
+
+            <!-- Location -->
+            <p class="colorTexto">Location: {{character.location.name}}</p>
+        </div>
+
+        <div class="col-12 my-5">
+            <h2 class="titulo colorTexto">Episodes</h2>
+
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 my-3 cardCharacter" *ngFor="let episode of episodes">
+                    <div class="card shadow" style="width: 18rem; background-color: #191919;">
+                        <div class="card-body">
+                            <a routerLink="/episode/{{episode.id}}" class="enlaceNombreCharacter colorTexto">
+                                <h5 class="card-title">{{episode.name}}</h5>
+                            </a>
+                            <p class="card-text colorTexto">{{episode.air_date}}</p>
+                            <p class="card-text colorTexto">{{episode.episode}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

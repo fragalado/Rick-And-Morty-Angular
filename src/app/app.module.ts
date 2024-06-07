@@ -9,6 +9,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CharacterComponent } from './components/character/character.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CharacterDetailComponent } from './components/character/character-detail/character-detail.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { CharacterDetailComponent } from './components/character/character-detai
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

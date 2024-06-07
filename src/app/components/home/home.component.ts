@@ -4,6 +4,7 @@ import { Episode } from 'src/app/models/episode';
 import { Location } from 'src/app/models/location';
 import { CharacterService } from 'src/app/services/character.service';
 import { LocationService } from 'src/app/services/location.service';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-home',
@@ -21,6 +22,9 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // Iniciamos AOS
+    AOS.init();
+
     // Obtenemos los personajes
     this.characterService.getCharacters().subscribe((response: any) => {
       // Obtenemos la lista de personajes

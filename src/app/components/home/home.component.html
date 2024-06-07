@@ -1,7 +1,7 @@
 <div class="container my-5">
 
     <!-- Characters -->
-    <div class="row">
+    <div class="row" data-aos="zoom-in" data-aos-once="true" data-aos-duration="2000">
         <div class="col-12">
             <h2 class="titulo colorTexto">Characters</h2>
         </div>
@@ -10,7 +10,7 @@
                 <div class="card shadow" style="width: 18rem; background-color: #191919;">
                     <img src="{{character.image}}" class="card-img-top" alt="{{character.name}}">
                     <div class="card-body">
-                        <a routerLink="/character/{{character.id}}" class="enlaceNombreCharacter colorTexto">
+                        <a routerLink="/character/{{character.id}}" [queryParams]="{ from: 'home' }" class="enlaceNombreCharacter colorTexto">
                             <h5 class="card-title">{{character.name}}</h5>
                         </a>
                         <p class="card-text colorTexto"
@@ -26,7 +26,7 @@
     </div>
 
     <!-- Locations -->
-    <div class="row my-5">
+    <div class="row my-5" data-aos="zoom-in" data-aos-once="true" data-aos-duration="2000">
         <div class="col-12">
             <h2 class="titulo colorTexto">Locations</h2>
         </div>
@@ -49,7 +49,7 @@
     </div>
 
     <!-- Episodes -->
-    <div class="row my-5">
+    <div class="row my-5" data-aos="zoom-in" data-aos-once="true" data-aos-duration="2000">
         <div class="col-12">
             <h2 class="titulo colorTexto">Episodes</h2>
         </div>
