@@ -1,0 +1,28 @@
+.enlaceNombreCharacter {
+    text-decoration: none;
+}
+
+.enlaceNombreCharacter:hover {
+    color: #a0a0a0;
+}
+
+.enlaceNombreCharacter:hover h5 {
+    transition: font-size 0.3s, text-decoration 0.3s;
+    font-size: 1.4em;
+    text-decoration: underline;
+}
+
+.titulo {
+    font-size: 3em;
+}
+
+.colorTexto {
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .cardCharacter {
+        display: flex;
+        justify-content: center;
+    }
+}

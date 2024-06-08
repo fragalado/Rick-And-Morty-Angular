@@ -1,0 +1,46 @@
+<div class="container my-5" *ngIf="episode">
+    <div class="row">
+
+        <div class="col-12">
+            <!-- Back button -->
+            <a routerLink="/{{urlFrom}}" class="btn btn-primary">Go Back</a>
+        </div>
+
+        <div class="col-12 text-center my-5">
+            <!-- Episode name -->
+            <h2 class="colorTexto">{{episode.name}}</h2>
+
+            <!-- Episode Air Date -->
+            <p class="colorTexto">Air date: {{episode.air_date}}</p>
+
+            <!-- Episode Code -->
+            <p class="colorTexto">{{episode.episode}}</p>
+        </div>
+
+        <div class="col-12 my-5">
+            <h2 class="titulo colorTexto">Characters</h2>
+
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 my-3 cardCharacter" *ngFor="let character of characters">
+                    <div class="card" style="width: 18rem; background-color: #191919; box-shadow: -3px 1px 20px -5px rgba(48,240,86,0.7);">
+                        <img src="{{character.image}}" class="card-img-top" alt="{{character.name}}">
+                        <div class="card-body">
+                            <a routerLink="/character/{{character.id}}" [queryParams]="{ from: 'episode', id: episode.id }"
+                                class="enlaceNombreCharacter colorTexto">
+                                <h5 class="card-title">{{character.name}}</h5>
+                            </a>
+                            <p class="card-text colorTexto"
+                                [ngClass]="{'text-success': character.status === 'Alive', 'text-danger': character.status === 'Dead', 'text-warning': character.status === 'unknown'}">
+                                {{character.status}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- No Characters Message -->
+                <div class="col-12 mt-2 text-center" *ngIf="characters.length === 0">
+                    <h5 class="text-center colorTexto">No characters</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

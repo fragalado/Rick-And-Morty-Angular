@@ -28,7 +28,14 @@ export class CharacterDetailComponent implements OnInit {
     this.id = parseInt(this.route.snapshot.paramMap.get('id') || "");
 
     // Obtenemos la vista de donde se ha entrado
-    this.urlFrom = this.route.snapshot.queryParamMap.get('from') || "";    
+    this.urlFrom = this.route.snapshot.queryParamMap.get('from') || "";
+
+    // Obtenemos el id de la ruta si lo hay
+    const idRuta = this.route.snapshot.queryParamMap.get('id');
+    
+    if (idRuta) {
+      this.urlFrom += "/" + idRuta;
+    }
 
     // Obtenemos el personaje por su id
     this.characterService.getCharacter(this.id).subscribe((response: Character) => {

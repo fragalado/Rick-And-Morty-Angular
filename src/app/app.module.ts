@@ -10,6 +10,10 @@ import { CharacterComponent } from './components/character/character.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CharacterDetailComponent } from './components/character/character-detail/character-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LocationComponent } from './components/location/location.component';
+import { LocationDetailComponent } from './components/location/location-detail/location-detail.component';
+import { EpisodeComponent } from './components/episode/episode.component';
+import { EpisodeDetailComponent } from './components/episode/episode-detail/episode-detail.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     CharacterComponent,
     NavbarComponent,
-    CharacterDetailComponent
+    CharacterDetailComponent,
+    LocationComponent,
+    LocationDetailComponent,
+    EpisodeComponent,
+    EpisodeDetailComponent
   ],
   imports: [
     BrowserModule,

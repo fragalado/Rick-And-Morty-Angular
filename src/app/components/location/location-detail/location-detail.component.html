@@ -1,0 +1,46 @@
+<div class="container my-5" *ngIf="location">
+    <div class="row">
+
+        <div class="col-12">
+            <!-- Back button -->
+            <a routerLink="/{{urlFrom}}" class="btn btn-primary">Go Back</a>
+        </div>
+
+        <div class="col-12 text-center my-5">
+            <!-- Location name -->
+            <h2 class="colorTexto">{{location.name}}</h2>
+
+            <!-- Location type -->
+            <p class="colorTexto">Type: {{location.type}}</p>
+
+            <!-- Location dimension -->
+            <p class="colorTexto">Dimension: {{location.dimension}}</p>
+        </div>
+
+        <div class="col-12 my-5">
+            <h2 class="titulo colorTexto">Residents</h2>
+
+            <div class="row">
+                <div class="col-12 col-sm-6 col-lg-4 col-xl-3 my-3 cardCharacter" *ngFor="let resident of residents">
+                    <div class="card" style="width: 18rem; background-color: #191919; box-shadow: -3px 1px 20px -5px rgba(48,240,86,0.7);">
+                        <img src="{{resident.image}}" class="card-img-top" alt="{{resident.name}}">
+                        <div class="card-body">
+                            <a routerLink="/character/{{resident.id}}" [queryParams]="{ from: 'location', id: location.id }"
+                                class="enlaceNombreCharacter colorTexto">
+                                <h5 class="card-title">{{resident.name}}</h5>
+                            </a>
+                            <p class="card-text colorTexto"
+                                [ngClass]="{'text-success': resident.status === 'Alive', 'text-danger': resident.status === 'Dead', 'text-warning': resident.status === 'unknown'}">
+                                {{resident.status}}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- No Residents Message -->
+                <div class="col-12 mt-2 text-center" *ngIf="residents.length === 0">
+                    <h5 class="text-center colorTexto">No residents</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

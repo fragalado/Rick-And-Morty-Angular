@@ -13,8 +13,14 @@ export class EpisodeService {
     return this.http.get('https://rickandmortyapi.com/api/episode');
   }
 
+  getEpisodesByPage(url: string) {
+    return this.http.get(url);
+  }
+
   getEpisode(id: number) {
-    return this.http.get(`https://rickandmortyapi.com/api/episode/${id}`) as Observable<Episode>;
+    return this.http.get(
+      `https://rickandmortyapi.com/api/episode/${id}`
+    ) as Observable<Episode>;
   }
 
   getEpisodeByUrl(url: string) {
@@ -25,9 +31,11 @@ export class EpisodeService {
     return this.http.get(`https://rickandmortyapi.com/api/episode/${ids}`);
   }
 
-  filterEpisodes(name: string) {
-    return this.http.get(
-      `https://rickandmortyapi.com/api/episode/?name=${name}`
-    );
+  filterEpisodes(name: string, page?: number) {
+    return !page
+      ? this.http.get(`https://rickandmortyapi.com/api/episode/?name=${name}`)
+      : this.http.get(
+          `https://rickandmortyapi.com/api/episode/?page=${page}&name=${name}`
+        );
   }
 }

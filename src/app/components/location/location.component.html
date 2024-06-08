@@ -1,0 +1,48 @@
+<div class="container my-5">
+    <!-- Locations -->
+    <div class="row" data-aos="zoom-in" data-aos-once="true" data-aos-duration="1500">
+
+        <div class="col-12 col-md-6">
+            <h2 class="titulo colorTexto">Locations</h2>
+        </div>
+        <div class="col-12 col-md-6" style="display: flex; align-items: center;">
+            <input type="text" class="form-control" placeholder="Search..." [formControl]="filterName">
+        </div>
+
+        <div class="row mt-4" *ngIf="locations.length === 0">
+            <h5 class="text-center colorTexto">Not Found</h5>
+        </div>
+
+        <div class="row" *ngIf="locations.length !== 0">
+            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 my-3 cardCharacter" *ngFor="let location of locations">
+                <div class="card" style="width: 18rem; background-color: #191919; box-shadow: -3px 1px 20px -5px rgba(48,240,86,0.7);">
+                    <div class="card-body">
+                        <a routerLink="/location/{{location.id}}" [queryParams]="{ from: 'locations' }"
+                            class="enlaceNombreCharacter colorTexto">
+                            <h5 class="card-title">{{location.name}}</h5>
+                        </a>
+                        <p class="card-text colorTexto">{{location.type}}</p>
+                        <p class="card-text colorTexto">{{location.dimension}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="locations.length !== 0">
+            <!-- Pagination -->
+            <div class="col-12" style="display: flex; justify-content: center; gap: 10px">
+                <button class="btn btn-primary" [disabled]="!prevPage" (click)="getLocations(prevPage)"
+                    [ngClass]="{'d-none': isFiltered}">Prev</button>
+                <button class="btn btn-primary" [disabled]="!nextPage" (click)="getLocations(nextPage)"
+                    [ngClass]="{'d-none': isFiltered}">Next</button>
+
+                <!-- Filtered buttons -->
+                <button class="btn btn-primary" [disabled]="!prevPage" (click)="filterLocationsByPage(prevPage!)"
+                    [ngClass]="{'d-none': !isFiltered}">Prev</button>
+                <button class="btn btn-primary" [disabled]="!nextPage" (click)="filterLocationsByPage(nextPage!)"
+                    [ngClass]="{'d-none': !isFiltered}">Next</button>
+            </div>
+        </div>
+
+    </div>
+</div>

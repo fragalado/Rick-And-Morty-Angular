@@ -5,6 +5,7 @@ import { Location } from 'src/app/models/location';
 import { CharacterService } from 'src/app/services/character.service';
 import { LocationService } from 'src/app/services/location.service';
 import * as AOS from 'aos';
+import { EpisodeService } from 'src/app/services/episode.service';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private characterService: CharacterService,
-    private locationService: LocationService
+    private locationService: LocationService,
+    private episodeService: EpisodeService
   ) {}
 
   ngOnInit(): void {
@@ -50,5 +52,15 @@ export class HomeComponent implements OnInit {
     });
 
     // Obtenemos los episodios
+    this.episodeService.getEpisodes().subscribe((response: any) => {
+      // Obtenemos la lista de localizaciones
+      const results = response.results.slice(0, 8);
+
+      // Recorremos la lista de localizaciones
+      results.forEach((episode: Episode) => {
+        // Aniadimos la localización a la lista
+        this.episodes.push(episode);
+      });
+    });
   }
 }
