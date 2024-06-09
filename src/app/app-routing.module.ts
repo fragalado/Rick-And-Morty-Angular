@@ -16,6 +16,7 @@ const routes: Routes = [
   { path: "location/:id", component: LocationDetailComponent},
   { path: "episodes", component: EpisodeComponent},
   { path: "episode/:id", component: EpisodeDetailComponent},
+  { path: ":status", component: HomeComponent}, // Lo dejamos al final para que no se sobreescriba en las otras
   { path: "**", redirectTo: "/", pathMatch: "full"}
 ];
 

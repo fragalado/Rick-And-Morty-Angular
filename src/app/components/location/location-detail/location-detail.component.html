@@ -3,7 +3,13 @@
 
         <div class="col-12">
             <!-- Back button -->
-            <a routerLink="/{{urlFrom}}" class="btn btn-primary">Go Back</a>
+            <a routerLink="/{{urlFrom}}" style="color: #acacac;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                    class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+                </svg>
+            </a>
         </div>
 
         <div class="col-12 text-center my-5">
@@ -22,10 +28,12 @@
 
             <div class="row">
                 <div class="col-12 col-sm-6 col-lg-4 col-xl-3 my-3 cardCharacter" *ngFor="let resident of residents">
-                    <div class="card" style="width: 18rem; background-color: #191919; box-shadow: -3px 1px 20px -5px rgba(48,240,86,0.7);">
+                    <div class="card"
+                        style="width: 18rem; background-color: #191919; box-shadow: -3px 1px 20px -5px rgba(48,240,86,0.7);">
                         <img src="{{resident.image}}" class="card-img-top" alt="{{resident.name}}">
                         <div class="card-body">
-                            <a routerLink="/character/{{resident.id}}" [queryParams]="{ from: 'location', id: location.id }"
+                            <a routerLink="/character/{{resident.id}}"
+                                [queryParams]="{ from: 'location', id: location.id }"
                                 class="enlaceNombreCharacter colorTexto">
                                 <h5 class="card-title">{{resident.name}}</h5>
                             </a>

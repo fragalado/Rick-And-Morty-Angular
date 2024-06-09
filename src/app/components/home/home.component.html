@@ -7,7 +7,8 @@
         </div>
         <div class="row">
             <div class="col-12 col-sm-6 col-lg-4 col-xl-3 my-3 cardCharacter" *ngFor="let character of characters">
-                <div class="card" style="width: 18rem; background-color: #191919; box-shadow: -3px 1px 20px -5px rgba(48,240,86,0.7);">
+                <div class="card"
+                    style="width: 18rem; background-color: #191919; box-shadow: -3px 1px 20px -5px rgba(48,240,86,0.7);">
                     <img src="{{character.image}}" class="card-img-top" alt="{{character.name}}">
                     <div class="card-body">
                         <a routerLink="/character/{{character.id}}" [queryParams]="{ from: 'home' }"
@@ -33,7 +34,8 @@
         </div>
         <div class="row">
             <div class="col-12 col-sm-6 col-lg-4 col-xl-3 my-3 cardCharacter" *ngFor="let location of locations">
-                <div class="card" style="width: 18rem; background-color: #191919; box-shadow: -3px 1px 20px -5px rgba(48,240,86,0.7);">
+                <div class="card"
+                    style="width: 18rem; background-color: #191919; box-shadow: -3px 1px 20px -5px rgba(48,240,86,0.7);">
                     <div class="card-body">
                         <a routerLink="/location/{{location.id}}" [queryParams]="{ from: 'home' }"
                             class="enlaceNombreCharacter colorTexto">
@@ -57,7 +59,8 @@
         </div>
         <div class="row">
             <div class="col-12 col-sm-6 col-lg-4 col-xl-3 my-3 cardCharacter" *ngFor="let episode of episodes">
-                <div class="card" style="width: 18rem; background-color: #191919; box-shadow: -3px 1px 20px -5px rgba(48,240,86,0.7);">
+                <div class="card"
+                    style="width: 18rem; background-color: #191919; box-shadow: -3px 1px 20px -5px rgba(48,240,86,0.7);">
                     <div class="card-body">
                         <a routerLink="/episode/{{episode.id}}" [queryParams]="{ from: 'home' }"
                             class="enlaceNombreCharacter colorTexto">

@@ -6,6 +6,8 @@ import { CharacterService } from 'src/app/services/character.service';
 import { LocationService } from 'src/app/services/location.service';
 import * as AOS from 'aos';
 import { EpisodeService } from 'src/app/services/episode.service';
+import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-home',
@@ -20,12 +22,26 @@ export class HomeComponent implements OnInit {
   constructor(
     private characterService: CharacterService,
     private locationService: LocationService,
-    private episodeService: EpisodeService
+    private episodeService: EpisodeService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
     // Iniciamos AOS
     AOS.init();
+
+    // Obtenemos el status
+    const status = this.route.snapshot.paramMap.get('status');
+
+    // Comprobamos el estado
+    if (status == 'completed') {
+      Swal.fire({
+        icon: 'success',
+        title: 'Thank you for donating to Rick and Morty',
+        showConfirmButton: false,
+        timer: 3500,
+      });
+    }
 
     // Obtenemos los personajes
     this.characterService.getCharacters().subscribe((response: any) => {
