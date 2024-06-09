@@ -14,6 +14,7 @@ import { LocationComponent } from './components/location/location.component';
 import { LocationDetailComponent } from './components/location/location-detail/location-detail.component';
 import { EpisodeComponent } from './components/episode/episode.component';
 import { EpisodeDetailComponent } from './components/episode/episode-detail/episode-detail.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { EpisodeDetailComponent } from './components/episode/episode-detail/epis
     LocationComponent,
     LocationDetailComponent,
     EpisodeComponent,
-    EpisodeDetailComponent
+    EpisodeDetailComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
